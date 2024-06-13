@@ -1,0 +1,7 @@
+#Wersja PHP
+AddHandler application/x-httpd-php80 php 
+
+RewriteCond %{HTTP_HOST} ^www.tusonic.pl(.*) [NC]
+RewriteRule ^(.*)$ https://tusonic.pl/$1 [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
